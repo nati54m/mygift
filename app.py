@@ -1,3 +1,4 @@
+
 import streamlit as st
 
 # --- הגדרות ---
@@ -8,10 +9,10 @@ SECRET_PASSWORD = "2012"
 GIFT_1 = "יום ספא זוגי מפנק"
 GIFT_2 = "סופשבוע בצימר בצפון"
 GIFT_3 = "קורס בישול "
-GIFT_4= 'חאתול'
-GIFT_5= "סרט ויאיפי  "
-GIFT_6= "ארוחה ביתית  "
-GIFT_6= "בית מלון   "
+GIFT_4 = "חאתול" # (אני לא בטוח מה זה, אבל השארתי :) )
+GIFT_5 = "סרט ויאיפי "
+GIFT_6 = "ארוחה ביתית "
+GIFT_7 = "בית מלון "  # <-- !!! תיקנתי את זה ל-GIFT_7 !!!
 # --- סוף הגדרות ---
 
 # משתמש בזיכרון של הסשן כדי לדעת אם המשתמש מחובר
@@ -37,7 +38,8 @@ if not st.session_state['logged_in']:
 else:
     st.title("מזל טוב ליום ההולדת! ❤️")
     st.header("בבקשה בחרי את המתנה שלך:")
-# כפתורים לבחירת מתנה
+    
+    # כפתורים לבחירת מתנה
     if st.button(GIFT_1):
         st.session_state['gift_choice'] = GIFT_1
 
@@ -47,7 +49,6 @@ else:
     if st.button(GIFT_3):
         st.session_state['gift_choice'] = GIFT_3
     
-    # --- 3 הכפתורים החדשים ---
     if st.button(GIFT_4):
         st.session_state['gift_choice'] = GIFT_4
 
@@ -56,8 +57,12 @@ else:
 
     if st.button(GIFT_6):
         st.session_state['gift_choice'] = GIFT_6
-    # --- סוף הכפתורים החדשים ---
-  
+        
+    # --- !!! הוספתי את הכפתור השביעי ששכחת !!! ---
+    if st.button(GIFT_7):
+        st.session_state['gift_choice'] = GIFT_7
+    # --- סוף התיקון ---
+
     # מציג את הבחירה שנבחרה
     if 'gift_choice' in st.session_state:
         st.balloons() # אפקט בלונים חמוד!
